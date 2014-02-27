@@ -1,0 +1,26 @@
+<h1>Donors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Postal Code</th>
+      <th>Country</th>
+      <th>Email</th>
+   </tr>
+  </thead>
+  <% @donors.each do |donor| %>
+    <tr>
+      <td> <%= link_to donor.name, donor %> </td>
+      <td> <%= link_to donor.address, donor %> </td>
+      <td> <%= link_to donor.city, donor %> </td>
+      <td> <%= link_to donor.state, donor %> </td>
+      <td> <%= link_to donor.postal_code, donor %> </td>
+      <td> <%= link_to donor.country, donor %> </td>
+      <td> <%= link_to donor.email, donor %> </td> 
+    </tr>
+  <% end %>
+</table>

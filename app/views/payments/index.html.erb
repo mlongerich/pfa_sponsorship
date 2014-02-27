@@ -1,0 +1,18 @@
+<h1>Payments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Sponsorship ID</th>
+      <th>Method</th>
+    </tr>
+  </thead>
+  <% @payments.each do |payment| %>
+    <tr>
+      <td> <%= link_to payment.month_year, payment %> </td>
+      <td> <%= link_to payment.sponsorship_id, payment%> </td> 
+      <td> <%= link_to payment.method, payment %> </td>
+    </tr>
+  <% end %>
+</table>

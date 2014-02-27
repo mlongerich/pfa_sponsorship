@@ -1,0 +1,24 @@
+<h1>Children</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number</th>
+      <th>Photo</th>
+      <th>Active</th>
+      <th>Living</th>
+      <th>Schooling</th>
+    </tr>
+  </thead>
+  <% @children.each do |child| %>
+    <tr>
+      <td> <%= link_to child.name, child %> </td>
+      <td> <%= link_to child.number, child %> </td>
+      <td> <%= link_to child.photo, child %> </td>
+      <td> <%= link_to child.active, child %> </td>
+      <td> <%= link_to child.living, child %> </td>
+      <td> <%= link_to child.schooling, child %> </ td> 
+    </tr>
+  <% end %>
+</table>

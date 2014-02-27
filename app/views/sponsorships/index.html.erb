@@ -1,0 +1,18 @@
+<h1>Sponsorships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Donor ID</th>
+      <th>Child ID</th>
+      <th>Sponsorship Type ID</th>
+    </tr>
+  </thead>
+  <% @sponsorships.each do |sponsorship| %>
+    <tr>
+      <td> <%= link_to sponsorship.donor_id, sponsorship %> </td>
+      <td> <%= link_to sponsorship.child_id, sponsorship %> </td>
+      <td> <%= link_to sponsorship.sponsorship_type_id, sponsorship %> </td>
+    </tr>
+  <% end %>
+</table>

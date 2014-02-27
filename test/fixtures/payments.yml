@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  month_year: 2014-02-22
+  sponsorship_id: 
+  method: MyString
+
+two:
+  month_year: 2014-02-22
+  sponsorship_id: 
+  method: MyString
