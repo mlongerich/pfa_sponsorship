@@ -3,12 +3,12 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Number</th>
-      <th>Photo</th>
-      <th>Active</th>
-      <th>Living</th>
-      <th>Schooling</th>
+      <th><%= sortable  "name" %></th>
+      <th><%= sortable "number" %> </th>
+      <th><%= sortable "photo" %> </th>
+      <th><%= sortable "active" %> </th>
+      <th><%= sortable "living" %> </th>
+      <th><%= sortable "schooling" %> </th>
     </tr>
   </thead>
   <% @children.each do |child| %>
