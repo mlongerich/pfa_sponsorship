@@ -11,17 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224092352) do
+ActiveRecord::Schema.define(version: 20140301042646) do
 
   create_table "children", force: true do |t|
     t.string   "name"
     t.integer  "number"
     t.string   "photo"
-    t.boolean  "active"
+    t.boolean  "active",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "living"
-    t.boolean  "schooling"
+    t.boolean  "living",     default: false
+    t.boolean  "schooling",  default: false
   end
 
   create_table "donors", force: true do |t|
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140224092352) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "sponsorship_type_id"
+    t.boolean  "active",              default: false
   end
 
 end
