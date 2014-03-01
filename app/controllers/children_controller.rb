@@ -1,27 +1,24 @@
 class ChildrenController < ApplicationController
   before_action :fetch_child, only: [:show, :edit, :update, :destroy, :toggle_active, :toggle_living, :toggle_schooling] 
   helper_method :sort_column, :sort_direction 
+
   def index
     @children = Child.order(sort_column + " " + sort_direction)
-
   end
 
   def show
   end
-  def new
 
+  def new
   end
 
   def edit
-
   end 
 
   def update
-
   end
 
   def destroy
-
   end
 
   def toggle_active

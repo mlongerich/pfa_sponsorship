@@ -3,10 +3,10 @@
 <table>
   <thead>
     <tr>
-      <th>Donor ID</th>
-      <th>Child ID</th>
-      <th>Sponsorship Type ID</th>
-      <th>Active</th>
+      <th><%= sortable "donor_id", "Donor ID" %></th>
+      <th><%= sortable "child_id", "Child ID" %></th>
+      <th><%= sortable "sponsorship_type_id", "Sponsorship Type ID" %></th>
+      <th><%= sortable "active" %></th>
     </tr>
   </thead>
   <% @sponsorships.each do |sponsorship| %>

@@ -3,13 +3,13 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Postal Code</th>
-      <th>Country</th>
-      <th>Email</th>
+      <th><%= sortable "name" %></th>
+      <th><%= sortable "address" %></th>
+      <th><%= sortable "city" %></th>
+      <th><%= sortable "state" %></th>
+      <th><%= sortable "postal_code", "Postal Code" %></th>
+      <th><%= sortable "country" %></th>
+      <th><%= sortable "email" %></th>
    </tr>
   </thead>
   <% @donors.each do |donor| %>
