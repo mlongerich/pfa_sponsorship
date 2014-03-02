@@ -3,14 +3,14 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "date" %></th>
+      <th><%= sortable "month_year", "Date" %></th>
       <th><%= sortable "sponsorship_id", "Sponsorship ID" %></th>
       <th><%= sortable "method" %></th>
     </tr>
   </thead>
   <% @payments.each do |payment| %>
     <tr>
-      <td> <%= link_to payment.month_year, payment %> </td>
+      <td> <%= link_to payment.month_year.strftime('%B %Y'), payment %> </td>
       <td> <%= link_to payment.sponsorship_id, payment%> </td> 
       <td> <%= link_to payment.method, payment %> </td>
     </tr>
