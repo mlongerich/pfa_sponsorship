@@ -1,6 +1,5 @@
-<h1><%=@payment.month_year%></h1>
+<h1><%=@payment.month_year.strftime('%B %Y') %></h1>
 
-<p>Date: <%= @payment.month_year%> </p>
 <p>Sponsorship ID: <%= @payment.sponsorship_id%> </p>
 <p>Method: <%= @payment.method%> </p>
 
