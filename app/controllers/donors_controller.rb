@@ -10,8 +10,22 @@ class DonorsController < ApplicationController
   def show
   end
 
-  def new
-  end
+
+	def new
+  	@donor = Donor.new
+	end
+
+	def create 
+    @donor = Donor.new(donor_params)
+     
+    respond_to do |format|
+    	if @donor.save
+        format.html {redirect_to @donor, notice: "Donor was sucessfully created." }
+      else 
+	      format.html {render action: "new"}
+      end
+    end
+	end
 
   def edit
   end 
@@ -20,6 +34,9 @@ class DonorsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def child
   end
 
   private
@@ -36,4 +53,8 @@ class DonorsController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end 
 
+
+	def donor_params
+    params.require(:donor).permit(:name, :address, :city, :state, :postal_code, :country, :email)
+	end
 end
