@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140301042646) do
+ActiveRecord::Schema.define(version: 20140303022959) do
 
   create_table "children", force: true do |t|
     t.string   "name"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 20140301042646) do
     t.datetime "updated_at"
   end
 
+  add_index "payments", ["sponsorship_id"], name: "index_payments_on_sponsorship_id"
+
   create_table "sponsorship_types", force: true do |t|
     t.integer  "amount"
     t.datetime "created_at"
@@ -59,5 +61,9 @@ ActiveRecord::Schema.define(version: 20140301042646) do
     t.integer  "sponsorship_type_id"
     t.boolean  "active",              default: false
   end
+
+  add_index "sponsorships", ["child_id"], name: "index_sponsorships_on_child_id"
+  add_index "sponsorships", ["donor_id"], name: "index_sponsorships_on_donor_id"
+  add_index "sponsorships", ["sponsorship_type_id"], name: "index_sponsorships_on_sponsorship_type_id"
 
 end

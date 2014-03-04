@@ -10,6 +10,7 @@ class ChildrenController < ApplicationController
   end
 
   def new
+    @child = Child.new
   end
 
   def edit
@@ -38,6 +39,17 @@ class ChildrenController < ApplicationController
     redirect_to @child
   end
 
+  def create
+    @child = Child.new(child_params)
+
+    respond_to do |format|
+      if @child.save
+        format.html {redirect_to @child, notice: "Child was successfully created." }
+      else
+        format.html {render action: "new"} 
+      end
+    end
+  end
   private
 
   def fetch_child
@@ -51,4 +63,8 @@ class ChildrenController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end 
+
+  def child_params
+    params.require(:child).permit(:name, :number, :photo, :active, :living, :schooling)i
+  end
 end
