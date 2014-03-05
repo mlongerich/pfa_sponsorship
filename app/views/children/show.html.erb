@@ -5,4 +5,5 @@
 <p>Active: <%= @child.active%> <%= link_to "Toggle Active", toggle_active_path(@child) %></p>
 <p>Living: <%= @child.living%> <%= link_to "Toggle Living", toggle_living_path(@child) %></p>
 <p>Schooling: <%= @child.schooling%> <%= link_to "Toggle Schooling", toggle_schooling_path(@child) %></p>
+<p><%= link_to "Edit Child", edit_child_path %></p>
 <p><%=link_to "Back to All Children", children_path%> </p>

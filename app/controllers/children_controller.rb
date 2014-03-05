@@ -16,8 +16,15 @@ class ChildrenController < ApplicationController
   def edit
   end 
 
-  def update
-  end
+	def update 
+  	respond_to do |format|
+    	if @child.update(child_params)
+      	format.html { redirect_to @child, notice: 'Child was successfully updated.' }
+    	else
+      	format.html { render action: 'edit' }
+    	end
+  	end
+	end
 
   def destroy
   end
@@ -50,6 +57,8 @@ class ChildrenController < ApplicationController
       end
     end
   end
+
+
   private
 
   def fetch_child

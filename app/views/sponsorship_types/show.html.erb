@@ -3,4 +3,5 @@
 <p>Kind: <%= @sponsorship_type.kind%> </p>
 <p>Occurances: <%= @sponsorship_type.sponsorships.count%> </p>
 
+<p><%=link_to "Edit Sponsorship Type", edit_sponsorship_type_path%> </p>
 <p><%=link_to "Back to All Sponsorship Types", sponsorship_types_path%> </p>

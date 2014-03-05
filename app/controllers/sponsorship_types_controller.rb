@@ -29,8 +29,15 @@ class SponsorshipTypesController < ApplicationController
   def edit
   end 
 
-  def update
-  end
+  def update 
+  	respond_to do |format|
+    	if @sponsorship_type.update(sponsorship_type_params)
+      	format.html { redirect_to @sponsorship_type, notice: 'Sponsorship type was successfully updated.' }
+    	else
+      	format.html { render action: 'edit' }
+    	end
+  	end
+	end 
 
   def destroy
   end

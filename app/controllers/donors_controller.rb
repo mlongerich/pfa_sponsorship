@@ -30,8 +30,15 @@ class DonorsController < ApplicationController
   def edit
   end 
 
-  def update
-  end
+  def update 
+  	respond_to do |format|
+    	if @donor.update(donor_params)
+     		format.html { redirect_to @donor, notice: 'Donor was successfully updated.' }
+    	else
+      	format.html { render action: 'edit' }
+    	end
+  	end
+	end
 
   def destroy
   end
