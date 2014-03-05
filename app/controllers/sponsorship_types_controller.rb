@@ -10,7 +10,20 @@ class SponsorshipTypesController < ApplicationController
   def show
   end
 
-  def new
+	def new
+    @sponsorship_type = SponsorshipType.new
+	end
+
+	def create 
+    @sponsorship_type = SponsorshipType.new(sponsorship_type_params)
+     
+    respond_to do |format|
+      if @sponsorship_type.save
+        format.html {redirect_to @sponsorship_type, notice: "Sponsorship Type  was successfully created." }
+      else 
+        format.html {render action: "new"}
+      end
+    end
   end
 
   def edit
@@ -36,4 +49,7 @@ class SponsorshipTypesController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end 
 
+	def sponsorship_type_params
+    params.require(:sponsorship_type).permit(:kind, :amount)
+	end
 end
