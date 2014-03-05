@@ -10,6 +10,19 @@ class PaymentsController < ApplicationController
   end
 
   def new
+    @payment = Payment.new
+  end
+
+  def create
+    @payment= Payment.new(payment_params)
+
+    respond_to do |format|
+      if @payment.save
+        format.html {redirect_to @payment, notice: "Payment was successfully created." }
+      else
+        format.html {render action: "new"}
+      end
+    end
   end
 
   def edit
@@ -34,4 +47,10 @@ class PaymentsController < ApplicationController
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end 
+
+	def payment_params
+    params.require(:payment).permit(:month_year, :sponsorship_id, :method)
+	end
+
+
 end
