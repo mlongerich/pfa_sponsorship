@@ -7,6 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%= link_to "Children", children_path %>
+<%= link_to "Donors", donors_path %>
+<%= link_to "Sponsorship Types", sponsorship_types_path %>
+<%= link_to "Sponsorships", sponsorships_path %>
+<%= link_to "Payments", payments_path %>
 <% if flash[:notice] %>
   <p> <%= flash[:notice] %> </p>
 <% end %>

@@ -4,7 +4,7 @@ class SponsorshipsController < ApplicationController
   helper_method :sort_column, :sort_direction 
 
   def index
-    @sponsorships = Sponsorship.order(sort_column + " " + sort_direction)
+    @sponsorships = Sponsorship.joins(params[:table]).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -49,7 +49,7 @@ class SponsorshipsController < ApplicationController
   end
   
   def sort_column
-    Sponsorship.column_names.include?(params[:sort]) ? params[:sort] : "id"
+    params[:sort] || "id"
   end
 
   def sort_direction

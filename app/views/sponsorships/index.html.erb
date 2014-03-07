@@ -3,17 +3,19 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "donor_id", "Donor ID" %></th>
-      <th><%= sortable "child_id", "Child ID" %></th>
-      <th><%= sortable "sponsorship_type_id", "Sponsorship Type ID" %></th>
+      <th><%= sortable "donors.name", "Donor Name", "INNER JOIN donors ON donors.id = sponsorships.donor_id" %></th>
+      <th><%= sortable "children.name", "Child Name", "INNER JOIN children ON children.id = sponsorships.child_id" %></th>
+      <th><%= sortable "sponsorship_types.kind", "Sponsorship Name", "INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships.sponsorship_type_id" %></th>
+      <th><%= sortable "sponsorship_types.amount", "Sponsorship Name", "INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships.sponsorship_type_id" %></th>
       <th><%= sortable "active" %></th>
     </tr>
   </thead>
   <% @sponsorships.each do |sponsorship| %>
     <tr>
-      <td> <%= link_to sponsorship.donor_id, sponsorship %> </td>
-      <td> <%= link_to sponsorship.child_id, sponsorship %> </td>
-      <td> <%= link_to sponsorship.sponsorship_type_id, sponsorship %> </td>
+      <td> <%= link_to sponsorship.donor.name, sponsorship %> </td>
+      <td> <%= link_to sponsorship.child.name, sponsorship %> </td>
+      <td> <%= link_to sponsorship.sponsorship_type.kind, sponsorship %> </td>
+      <td> <%= link_to sponsorship.sponsorship_type.amount, sponsorship %> </td>
       <td> <%= link_to sponsorship.active, sponsorship %> </td>
     </tr>
   <% end %>
