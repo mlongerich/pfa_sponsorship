@@ -3,7 +3,7 @@ class PaymentsController < ApplicationController
   helper_method :sort_column, :sort_direction 
   
   def index
-    @payments = Payment.order(sort_column + " " + sort_direction)
+    @payments = Payment.joins(params[:table]).order(sort_column + " " + sort_direction)
   end
 
   def show
@@ -48,7 +48,7 @@ class PaymentsController < ApplicationController
   end
 
   def sort_column
-    Payment.column_names.include?(params[:sort]) ? params[:sort] : "id"
+    params[:sort] || "id"
   end
 
   def sort_direction

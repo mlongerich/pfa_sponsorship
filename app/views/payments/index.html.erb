@@ -4,14 +4,22 @@
   <thead>
     <tr>
       <th><%= sortable "month_year", "Date" %></th>
-      <th><%= sortable "sponsorship_id", "Sponsorship ID" %></th>
+      <th><%= sortable "donors.name", "Donor Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN donors ON donors.id = sponsorships_payments_join.donor_id" %></th>
+      <th><%= sortable "children.name", "Child Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN children ON children.id = sponsorships_payments_join.child_id" %></th>
+      <th><%= sortable "sponsorship_types.kind", "Sponsorship Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships_payments_join.sponsorship_type_id"%></th>
+      <th><%= sortable "sponsorship_types.amount", "Sponsorship Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships_payments_join.sponsorship_type_id" %></th>
+      <th><%= sortable "active" %></th>
       <th><%= sortable "method" %></th>
     </tr>
   </thead>
   <% @payments.each do |payment| %>
     <tr>
       <td> <%= link_to payment.month_year.strftime('%B %Y'), payment %> </td>
-      <td> <%= link_to payment.sponsorship_id, payment%> </td> 
+      <td> <%= link_to payment.sponsorship.donor.name, payment%> </td> 
+      <td> <%= link_to payment.sponsorship.child.name,  payment%> </td>
+      <td> <%= link_to payment.sponsorship.sponsorship_type.kind, payment %> </td>
+      <td> <%= link_to payment.sponsorship.sponsorship_type.amount, payment %> </td>
+      <td> <%= link_to payment.sponsorship.active, payment %> </td>
       <td> <%= link_to payment.method, payment %> </td>
     </tr>
   <% end %>

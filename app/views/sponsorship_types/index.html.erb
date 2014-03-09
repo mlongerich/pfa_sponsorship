@@ -3,15 +3,15 @@
 <table>
   <thead>
     <tr>
-      <th><%= sortable "amount", "Dollar Amount" %></th>
       <th><%= sortable "kind" %></th>
+      <th><%= sortable "amount", "Dollar Amount" %></th>
       <th>Occurances</th>
     </tr>
   </thead>
   <% @sponsorship_types.each do |st| %>
     <tr>
-      <td> <%= link_to st.amount, st %> </td>
       <td> <%= link_to st.kind, st %>  </td>
+      <td> <%= link_to st.amount, st %> </td>
       <td> (<%= st.sponsorships.count%>) </td>
 
     </tr>
