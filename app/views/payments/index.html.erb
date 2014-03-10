@@ -8,7 +8,7 @@
       <th><%= sortable "children.name", "Child Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN children ON children.id = sponsorships_payments_join.child_id" %></th>
       <th><%= sortable "sponsorship_types.kind", "Sponsorship Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships_payments_join.sponsorship_type_id"%></th>
       <th><%= sortable "sponsorship_types.amount", "Sponsorship Name", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id INNER JOIN sponsorships sponsorships_payments_join ON sponsorships_payments_join.id = payments.sponsorship_id INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships_payments_join.sponsorship_type_id" %></th>
-      <th><%= sortable "active" %></th>
+      <th><%= sortable "active", "Active", "INNER JOIN sponsorships ON sponsorships.id = payments.sponsorship_id" %></th>
       <th><%= sortable "method" %></th>
     </tr>
   </thead>
