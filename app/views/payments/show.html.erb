@@ -1,7 +1,11 @@
-<h1><%=@payment.month_year.strftime('%B %Y') %></h1>
+<h1><%= @payment.sponsorship.donor.name %>'s <%=@payment.month_year.strftime('%B %Y') %></h1>
 
-<p>Sponsorship ID: <%= @payment.sponsorship_id%> </p>
+<p>Child Name: <%= @payment.sponsorship.child.name %></p>
+<p>Sponsorship Type: <%= @payment.sponsorship_type.kind %></p>
+<p>Sponsorship Amount: <%= @payment.sponsorship_type.amount%></p>
+<p>Acitve: <%= @payment.sponsorship.active %></p>
 <p>Method: <%= @payment.method%> </p>
 <p><%=link_to "Edit Payment", edit_payment_path %></p>
 <p><%=link_to "Back to All Payments", payments_path%> </p>
+
 

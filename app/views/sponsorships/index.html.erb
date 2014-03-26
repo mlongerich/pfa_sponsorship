@@ -6,7 +6,7 @@
       <th><%= sortable "donors.name", "Donor Name", "INNER JOIN donors ON donors.id = sponsorships.donor_id" %></th>
       <th><%= sortable "children.name", "Child Name", "INNER JOIN children ON children.id = sponsorships.child_id" %></th>
       <th><%= sortable "sponsorship_types.kind", "Sponsorship Name", "INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships.sponsorship_type_id" %></th>
-      <th><%= sortable "sponsorship_types.amount", "Sponsorship Name", "INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships.sponsorship_type_id" %></th>
+      <th><%= sortable "sponsorship_types.amount", "Sponsorship Amount", "INNER JOIN sponsorship_types ON sponsorship_types.id = sponsorships.sponsorship_type_id" %></th>
       <th><%= sortable "active" %></th>
     </tr>
   </thead>

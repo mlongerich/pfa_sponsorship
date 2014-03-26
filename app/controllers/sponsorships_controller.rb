@@ -1,6 +1,6 @@
 class SponsorshipsController < ApplicationController
 
-  before_action :fetch_sponsorship, only: [:show, :edit, :update, :destroy] 
+  before_action :fetch_sponsorship, only: [:show, :edit, :update, :destroy, :toggle_active_sponsorship] 
   helper_method :sort_column, :sort_direction 
 
   def index
@@ -40,6 +40,12 @@ class SponsorshipsController < ApplicationController
 	end  
 
   def destroy
+  end
+
+  def toggle_active_sponsorship
+    @sponsorship.toggle!(:active)
+    flash[:notice] = "Active status has changed"
+    redirect_to @sponsorship
   end
 
   private

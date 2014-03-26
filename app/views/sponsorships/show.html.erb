@@ -1,7 +1,9 @@
 <h1><%= @sponsorship.donor.name %></h1>
 
 <p>Child Name: <%= @sponsorship.child.name%> </p>
-<p>Sponsorship Type: <%= @sponsorship.sponsorship_type.kind%> <%= @sponsorship.sponsorship_type.amount%> </p>
-
+<p>Sponsorship Type: <%= @sponsorship.sponsorship_type.kind%> </p>
+<p>Sponsorship Amount: <%= @sponsorship.sponsorship_type.amount%> </p>
 <!-- <p><%=link_to "Edit Sponsorships", edit_sponsorship_path %> </p> -->
+<p>Active: <%= @sponsorship.active%> <%= link_to "Toggle Active", toggle_active_sponsorship_path(@sponsorship) %></p>
 <p><%=link_to "Back to All Sponsorships", sponsorships_path %> </p>
+

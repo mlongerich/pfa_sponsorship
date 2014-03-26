@@ -19,6 +19,8 @@ resources :children, :donors, :sponsorships, :sponsorship_types, :payments
 get "/children/:id/toggle_active", to: "children#toggle_active", as: :toggle_active
 get "/children/:id/toggle_living", to: "children#toggle_living", as: :toggle_living
 get "/children/:id/toggle_schooling", to: "children#toggle_schooling", as: :toggle_schooling
+get "/sponsorships/:id/toogle_active_sponsorship", to: "sponsorships#toggle_active_sponsorship", as: :toggle_active_sponsorship
+
   # Example resource route with options:
   #   resources :products do
   #     member do

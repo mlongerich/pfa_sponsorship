@@ -12,17 +12,17 @@
 
 <div class="field">
   <%= f.label :donor_id %> <br>
-  <%= f.number_field :donor_id %>
+  <%= f.collection_select :donor_id, Donor.order(:name),:id,:name, include_blank: true %>
 </div>
 
 <div class="field">
   <%= f.label :child_id %> <br>
-  <%= f.number_field :child_id %>
+  <%= f.collection_select :child_id, Child.order(:name),:id,:name, include_blank: true %>
 </div>
 
 <div class="field">
   <%= f.label :sponsorship_type_id %> <br>
-  <%= f.number_field :sponsorship_type_id %>
+  <%= f.collection_select :sponsorship_type_id,SponsorshipType.order(:kind),:id,:kind , include_blank: true %>
 </div>
 
 <div class="field">
