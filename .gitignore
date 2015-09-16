@@ -16,4 +16,5 @@
 /tmp
 
 #Ignore all .DS_Store files.
+*.sw?
 *.DS_Store
